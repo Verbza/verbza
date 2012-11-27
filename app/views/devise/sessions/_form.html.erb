@@ -1,8 +1,8 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
   <div class="sign_in_fields">
-    <%= f.email_field :email, :placeholder => "Email", :class=>"input-xlarge"%>
-    <%= f.password_field :password, :placeholder => "Password", :class=>"input-xlarge" %>
+    <%= f.email_field :email, :placeholder => "Email" %>
+    <%= f.password_field :password, :placeholder => "Password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
