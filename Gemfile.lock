@@ -74,6 +74,11 @@ GEM
     jquery_mobile_rails (1.2.0)
       rails (>= 3.1.0)
     json (1.7.5)
+    less (2.2.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.2.6)
+      actionpack (>= 3.1)
+      less (~> 2.2.0)
     libv8 (3.3.10.4)
     listen (0.6.0)
     lumberjack (1.0.2)
@@ -170,7 +175,8 @@ DEPENDENCIES
   faker
   guard-rspec
   jquery-rails
-  jquery_mobile_rails
+  jquery_mobile_rails (~> 1.2.0)
+  less-rails
   pg
   rails (= 3.2.9)
   rspec-rails
