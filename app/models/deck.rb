@@ -4,4 +4,7 @@ class Deck < ActiveRecord::Base
   has_many :cards, :through => :cards_decks
 
   attr_accessible :name, :user_id
+  
+  validates :name,
+    presence: true
 end
