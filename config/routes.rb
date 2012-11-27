@@ -2,7 +2,7 @@ Verbza::Application.routes.draw do
   resources :home
   devise_for :users
 
-  root :to => "users#index"
+  root :to => "home#index"
 
 
 
