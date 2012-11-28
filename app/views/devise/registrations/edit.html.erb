@@ -3,17 +3,17 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div data-role="fieldcontain">
+  <%= f.email_field :email, :placeholder => "Email" %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div data-role="fieldcontain"><i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div data-role="fieldcontain">
+  <%= f.password_field :password_confirmation, :placeholder => "Password confirmation" %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div data-role="fieldcontain"> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password, :placeholder => "Old Password" %></div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>

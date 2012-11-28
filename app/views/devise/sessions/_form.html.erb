@@ -1,8 +1,12 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
   <div class="sign_in_fields">
-    <%= f.email_field :email, :placeholder => "Email" %>
-    <%= f.password_field :password, :placeholder => "Password" %>
+    <div data-role="fieldcontain">
+      <%= f.email_field :email, :placeholder => "Email" %>
+    </div>
+    <div data-role="fieldcontain">
+      <%= f.password_field :password, :placeholder => "Password" %>
+    </div>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -10,3 +14,5 @@
 
   <div><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
 <% end %>
+
+
