@@ -4,6 +4,21 @@ class CardsController < ApplicationController
     @cards = @deck.cards
   end
 
+  def new
+    @card = Card.new
+  end
+
+  def create
+    @deck = Deck.find(params[:deck_id])
+    @card = @deck.cards.build(params[:card])
+
+    if @card.save
+      redirect_to @card
+    else
+      render 'new'
+    end
+  end
+
   def show
 
   end
