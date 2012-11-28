@@ -1,0 +1,10 @@
+<% form_for @card do |f| %>
+  <div data-role="fieldcontain">
+    <%= f.text_field :foreign_word, :placeholder => "Foreign Word" %>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.text_field :native_word, :placeholder => "Native Word" %>
+  </div>
+    <%= f.submit %>
+
+<% end %>

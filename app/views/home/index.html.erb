@@ -1,4 +1,6 @@
-
-
-<%= render 'devise/sessions/form', :controller => "devise/sessions"  %>
-<%= render "devise/shared/links" %>
+<% if current_user %>
+  <%= render "cards/form" %>
+<% else %>
+  <%= render "devise/sessions/form", :controller => "devise/sessions"  %>
+  <%= render "devise/shared/links" %>
+<% end %>
