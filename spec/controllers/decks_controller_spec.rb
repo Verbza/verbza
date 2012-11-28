@@ -1,11 +1,20 @@
 require 'spec_helper'
 
 describe DecksController do
+  let(:user) { create(:user) }
+
+  it { should have_before_filter :find_deck }
+
+  before(:each) do
+    controller.stub :current_user => user
+  end
+
   describe 'GET #index' do
+    let!(:good_deck) { create(:deck, :user => user) }
+
     it "populates an array of decks" do
-      deck = create(:deck)
       get :index
-      assigns(:decks).should eq [deck]
+      assigns(:decks).should eq [good_deck]
     end
 
     it "renders the :index view" do
@@ -15,13 +24,14 @@ describe DecksController do
   end
 
   describe 'GET #show' do
+    let!(:good_deck) { create(:deck, :user => user) }
+
     before(:each) do
-      @deck = create(:deck)
-      get :show, id: @deck
+      get :show, id: good_deck
     end
 
     it "assigns the requested deck to @deck" do
-      assigns(:deck).should eq @deck
+      assigns(:deck).should eq good_deck
     end
 
     it "renders the :show template" do
@@ -42,12 +52,14 @@ describe DecksController do
   end
 
   describe 'GET #edit' do
+    let!(:good_deck) { create(:deck, :user => user) }
+
     before(:each) do
-      @deck = create(:deck)
-      get :edit, id: @deck
+      get :edit, id: good_deck
     end
+
     it "assigns the requested deck to @deck" do
-      assigns(:deck).should eq @deck
+      assigns(:deck).should eq good_deck
     end
 
     it "renders the :edit template" do
@@ -84,25 +96,23 @@ describe DecksController do
   end
 
   describe "PUT #update" do
-    before(:each) do
-      @deck = create(:deck, name: "Chinese Vocab")
-    end
+    let!(:good_deck) { create(:deck, :user => user) }
 
     it "locates the requested @deck" do
-      put :update, id: @deck, deck: attributes_for(:deck)
-      assigns(:deck).should eq(@deck)
+      put :update, id: good_deck, deck: attributes_for(:deck)
+      assigns(:deck).should eq(good_deck)
     end
 
     context "with valid attributes" do
       it "changes @deck's attributes" do
-        put :update, id: @deck, deck: attributes_for(:deck, name: "Arabic Vocab")
-        @deck.reload
-        @deck.name.should eq("Arabic Vocab")
+        expect {
+          put :update, id: good_deck, deck: attributes_for(:deck, name: "Arabic Vocab")
+        }.to change{good_deck.reload.name}.to 'Arabic Vocab'
       end
 
       it "redirects to the updated deck" do
-        put :update, id: @deck, deck: attributes_for(:deck)
-        response.should redirect_to @deck
+        put :update, id: good_deck, deck: attributes_for(:deck)
+        response.should redirect_to good_deck
       end
     end
 

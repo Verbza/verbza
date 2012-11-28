@@ -1,33 +1,32 @@
 class DecksController < ApplicationController
+  before_filter :validate_user
+  before_filter :find_deck, :only => [:show, :edit, :update, :destroy]
+
   def index
-    @decks = Deck.all
+    @decks = current_user.decks
   end
 
   def show
-    @deck = Deck.find(params[:id])
   end
 
   def new
-    @deck = Deck.new
+    @deck = current_user.decks.new # pass user's id
   end
 
   def edit
-    @deck = Deck.find(params[:id])
   end
 
   def create
-    @deck = Deck.new(params[:deck])
+    @deck = current_user.decks.build(params[:deck])
 
     if @deck.save
-      redirect_to root_url
+      redirect_to @deck
     else
       render 'new'
     end
   end
 
   def update
-    @deck = Deck.find(params[:id])
-
     if @deck.update_attributes(params[:deck])
       redirect_to @deck
     else
@@ -36,9 +35,18 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    @deck = Deck.find(params[:id])
     @deck.destroy
 
     redirect_to decks_url
+  end
+
+  private
+
+  def find_deck
+    @deck = current_user.decks.find(params[:id])
+  end
+
+  def validate_user
+    redirect_to root_url unless current_user
   end
 end
