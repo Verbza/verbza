@@ -46,8 +46,9 @@
 
 3. Quiz: Basic performance tracking - how many times right, how many times wrong globally
 
-4. User Model: add a folder in /images for each user when they successfully create an account named with their user_id for storing their uploaded images
+4. User Model: add a folder in /images for each user when they successfully create an account named with their user_id 
+	- storing their uploaded images
 
 5. Deck Model: regarding sharing decks: schema will have to be changed to a deck having many users through users_decks 
-(think about this later, could be  complicated; think about deleting users’ photos for their decks for privacy concerns)
+	- (think about this later, could be  complicated; think about deleting users’ photos for their decks for privacy concerns)
 
