@@ -20,7 +20,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.build(params[:deck])
 
     if @deck.save
-      redirect_to @deck
+      redirect_to decks_path
     else
       render 'new'
     end
