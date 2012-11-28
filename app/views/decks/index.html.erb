@@ -1,0 +1,8 @@
+<%= link_to "New Deck", new_deck_path %>
+
+<% @decks.each do |deck| %>
+  <ul data-role="listview">
+    <li><%= deck.name %></li>
+  </ul>
+
+<% end %>
