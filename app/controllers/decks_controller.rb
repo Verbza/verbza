@@ -19,7 +19,7 @@ class DecksController < ApplicationController
     @deck = Deck.new(params[:deck])
 
     if @deck.save
-      redirect_to root_url
+      redirect_to decks_path
     else
       render 'new'
     end

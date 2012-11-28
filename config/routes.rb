@@ -1,6 +1,10 @@
 Verbza::Application.routes.draw do
 
-  root :to => "home#index"
+  # if current_user
+  #   root :to => "decks#index"
+  # else
+    root :to => "home#index"
+  # end
 
   devise_for :users
 
