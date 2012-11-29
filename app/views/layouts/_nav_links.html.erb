@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <li data-icon="false"><%= link_to "Home", root_path %></li>
+  <li data-icon="false"><%= link_to "All Decks", decks_path %></li>
+  <li data-icon="false"><%= link_to "All Cards", deck_cards_path(current_user.decks.first.id) %></li>
+<% end %>
