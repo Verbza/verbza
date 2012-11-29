@@ -1,5 +1,5 @@
 #content {
-  background: url("header_pic.jpg");
+  background: url("header_pic.jpg") no-repeat;
   background-size: 100%;
 }
 
@@ -14,4 +14,8 @@ li.list_bar {
 .ui-input-search {
   opacity:0.6;
   filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.ui-field-contain input.ui-input-text, .ui-field-contain textarea.ui-input-text, .ui-field-contain .ui-input-search {
+  width: 100%;
 }

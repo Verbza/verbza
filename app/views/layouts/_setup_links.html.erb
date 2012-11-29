@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
-  <li data-icon="false"><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-  <li data-icon="false"><%= link_to "Edit profile", "#" %></li>
+  <li data-icon="false"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+  <li data-icon="false"><%= link_to "Edit profile", edit_user_registration_path %></li>
 <% else %>
   <%= render "devise/shared/links" %>
 <% end %>
