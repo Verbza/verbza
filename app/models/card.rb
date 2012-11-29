@@ -1,5 +1,4 @@
 class Card < ActiveRecord::Base
-  after_create :add_to_all_cards
   belongs_to :user
 
   has_many :card_decks
@@ -13,10 +12,4 @@ class Card < ActiveRecord::Base
   validates :foreign_word,
     :presence => true
 
-  private
-
-  def add_to_all_cards
-    current_user.decks.first.cards.create(:native_word => self.native_word,
-    :foreign_word => self.foreign_word, :user_id => current_user.id)
-  end
 end

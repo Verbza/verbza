@@ -5,22 +5,25 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = current_user.cards.new
+    # @card = current_user.cards.new
+    # @deck = current_user.decks.first
   end
 
   def create
-    @deck = Deck.find(params[:deck_id])
+    @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
+    @card.user_id = current_user.id
 
     if @card.save
-      redirect_to @card
+      @card.card_decks.create(:deck_id => @deck.id)
+      redirect_to deck_card_path(@deck, @card)
     else
       render 'new'
     end
   end
 
   def show
-
+    @card = Card.find(params[:id])
   end
 
   def edit

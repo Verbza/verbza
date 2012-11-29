@@ -1,0 +1,5 @@
+<p><%= @deck.name %></p>
+<p>Native Word | Foreign Word</p>
+<% @deck.cards.each do |card| %>
+  <%= card.native_word %> | <%= card.foreign_word %><br>
+<% end %>

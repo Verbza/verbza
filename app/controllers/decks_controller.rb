@@ -7,6 +7,7 @@ class DecksController < ApplicationController
   end
 
   def show
+    @deck = Deck.find(params[:id])
   end
 
   def new
