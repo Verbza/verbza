@@ -1,11 +1,19 @@
-<%= form_for [current_user.decks.first, @card = Card.new] do |f| %>
+<%= form_for [@decks.first, @card = Card.new] do |f| %>
  <div data-role="fieldcontain">
    <%= f.text_field :foreign_word, :placeholder => "Foreign Word" %>
  </div>
  <div data-role="fieldcontain">
    <%= f.text_field :native_word, :placeholder => "Native Word" %>
  </div>
- <!-- current_user.decks.each ... -->
-   <%= f.submit %>
+  <div data-role="fieldcontain">
+    <% @decks.each do |deck|%>
+    <fieldset data-role="controlgroup">
+      <%= f.check_box :deck_id, deck.id, @card.decks.include?(deck) %>
+      <%= f.label deck.name %>
+    </fieldset>
+   <% end %>
+   </div>
+  <%= f.submit %>
+  
 
 <% end %>

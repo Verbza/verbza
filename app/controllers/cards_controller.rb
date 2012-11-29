@@ -7,6 +7,7 @@ class CardsController < ApplicationController
   def new
     # @card = current_user.cards.new
     # @deck = current_user.decks.first
+    @decks = current_user.decks
   end
 
   def create
