@@ -26,11 +26,10 @@
 
 
 
-    <div class="wrapper" data-role="page">
+    <div class="wrapper" data-role="page", data-theme="b">
       <header data-role="header">
-        <h1>verbza</h1>
+        <%= render "layouts/header"%>
       </header>
-
       <div data-role="content">
         <%= yield %>
         <%= render "layouts/links"%>
