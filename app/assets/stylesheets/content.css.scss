@@ -1,0 +1,17 @@
+#content {
+  background: url("header_pic.jpg");
+  background-size: 100%;
+}
+
+li.list_bar {
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+  &:hover {
+    opacity:1.0;
+    filter:alpha(opacity=100); /* For IE8 and earlier */
+  }
+}
+.ui-input-search {
+  opacity:0.6;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+}

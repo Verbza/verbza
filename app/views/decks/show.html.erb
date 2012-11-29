@@ -1,5 +1,9 @@
 <p><%= @deck.name %></p>
+<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
 <p>Native Word | Foreign Word</p>
 <% @deck.cards.each do |card| %>
-  <%= card.native_word %> | <%= card.foreign_word %><br>
+
+  <div>
+    <%= card.native_word %> | <%= card.foreign_word %> | (Edit) | (Add to Deck) | (Delete)
+  </div>
 <% end %>

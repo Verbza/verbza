@@ -1,11 +1,7 @@
-<%= link_to "New Deck", new_deck_path %>
-<br>
-<br>
 <div>
-<% @decks.each do |deck| %>
   <ul data-role="listview">
-    <li><%= link_to "#{deck.name}", deck_path(deck) %></li>
+    <% @decks.each do |deck| %>
+    <li class="list_bar"><%= link_to "#{deck.name}", deck_path(deck) %></li>
+    <% end %>
   </ul>
-
-<% end %>
 </div>

@@ -1,8 +1,10 @@
 #header{
   overflow: visible; /* Let menu content overflow outside the header */
+//  background: gray;
 }
 #header ul { /* Menu Name */
   margin-top: 1em;
+  padding-left: 0;
 }
 #header .ui-btn-corner-all {
 }
@@ -44,8 +46,9 @@
   height: 75px;
 }
 #home .ui-header h1 {
+  font-family: 'Coming Soon', cursive;
   position: absolute;
-  font-size: 16pt;
+  font-size: 22pt;
   margin-bottom:0px;
 }
 #home .ui-title {
