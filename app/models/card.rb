@@ -12,4 +12,5 @@ class Card < ActiveRecord::Base
   validates :foreign_word,
     :presence => true
 
+
 end

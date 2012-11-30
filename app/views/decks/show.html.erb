@@ -1,6 +1,16 @@
 <h2><%= @deck.name %></h2>
 
-<%= render 'layouts/search'%>
+  <% if @deck.name == "All cards" %>
+    <div id="single_head">
+      <%= render 'layouts/search'%>
+    </div>
+  <% else %>
+    <div id="multi_head">
+      <%= render 'layouts/search'%>
+      <p data-role="button" data-inline="true" id="edit_deck_button" data-mini="true"><%= link_to "Edit", edit_deck_path(@deck) %></p>
+      <p data-role="button" data-inline="true" id="destroy_deck_button" data-mini="true"><%= link_to "Delete", deck_path(@deck), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
+    </div>
+  <% end %>
 
 <div>
   <ul data-role="listview">

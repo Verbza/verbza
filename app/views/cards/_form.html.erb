@@ -1,14 +1,15 @@
-<%= form_for [@decks.first, @card = Card.new] do |f| %>
+<%= form_for [current_user.decks.first, @card] do |f| %>
  <div data-role="fieldcontain">
    <%= f.text_field :foreign_word, :placeholder => "Foreign Word" %>
  </div>
  <div data-role="fieldcontain">
    <%= f.text_field :native_word, :placeholder => "Native Word" %>
  </div>
+
   <% @decks.each do |deck| %>
    <div data-role="fieldcontain">
      <%= check_box_tag 'deck_ids[]', deck.id %>
-     <%= deck.name %> 
+     <%= deck.name %>
    </div>
  <% end %>
    <!-- LIST ALL DECKS WITH CHECKBOXES NEXT TO THEM -->

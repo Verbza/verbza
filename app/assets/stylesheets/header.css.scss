@@ -1,5 +1,12 @@
+header#header {
+  position: fixed;/* Let menu content overflow outside the header */
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 #header{
-  overflow: visible; /* Let menu content overflow outside the header */
+  overflow: visible;
 //  background: gray;
 }
 #header ul { /* Menu Name */
@@ -62,3 +69,9 @@ margin: 0;
   display: inline-block;
   top: -5px; /* Doesnt seem possible to vertically center otherwise */
 }
+
+//ul li div.ui-btn-inner {
+//  z-index: 100;
+//  opacity: 1.0;
+//  filter:alpha(opacity=100);
+//}

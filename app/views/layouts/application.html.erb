@@ -27,20 +27,22 @@
 
 
 
-    <div id="home" class="wrapper" data-role="page", data-theme="b">
+
+    <div id="home" class="wrapper" data-role="page", data-theme="a">
       <header id="header" data-role="header">
         <%= render "layouts/header"%>
       </header>
       <div id="content" data-role="content">
         <%= yield %>
+
       </div>
 
-      <footer data-role="footer">
+      <footer data-role="footer" data-position="fixed">
         <p>&copy; <span>verbza</span>, 2012</p>
       </footer>
 
     </div> <!-- /container -->
 
-
+    <%= image_tag("background-large.jpg", class: "background_image") %>
   </body>
 </html>

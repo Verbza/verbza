@@ -1,5 +1,13 @@
 <div id="single_card_body">
-  <h2><%= @card.native_word %></h2>
-  <p><%= @card.foreign_word %></p>
-  (Edit card, delete card, img,..)
+  <div id="words">
+    <h2><%= @card.native_word %></h2>
+    <p><%= @card.foreign_word %></p>
+  </div>
+  <div id="card_edit_button">
+    <p data-role="button" data-inline="true" data-mini="true"><%= link_to "Edit", edit_deck_card_path(@card.decks.first, @card) %></p>
+    <p id="card_delete_button" data-role="button" data-inline="true" data-mini="true"><%= link_to "Delete", deck_card_path(@card.decks.first, @card), :method => :delete %></p>
+  </div>
+  <div id="rest">
+    (Edit card, delete card, img,..)
+  </div>
 </div>

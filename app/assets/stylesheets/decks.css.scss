@@ -1,3 +1,31 @@
 // Place all the styles related to the Decks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#multi_head #edit_deck_button, #multi_head #destroy_deck_button {
+  margin-bottom: 20px;
+
+  a {
+    font-size: 0.95em;
+
+    color: white;
+    text-decoration: none;
+    &:visited {
+      color: white;
+    }
+  }
+}
+#multi_head div.search_input {
+  float: left;
+//  width: 90%;
+}
+
+#single_head div.search_input {
+  margin-bottom: 30px;
+}
+
+#rest {
+  clear:left;;
+}
+
