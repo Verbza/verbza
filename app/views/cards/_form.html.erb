@@ -6,13 +6,17 @@
    <%= f.text_field :native_word, :placeholder => "Native Word" %>
  </div>
 
-  <% @decks.each do |deck| %>
-   <div data-role="fieldcontain">
-     <%= check_box_tag 'deck_ids[]', deck.id %>
-     <%= deck.name %>
-   </div>
- <% end %>
+  <div data-role="fieldcontain">
+    <% @decks.each do |deck| %>
+
+      <fieldset data-role="controlgroup">
+        <%= check_box_tag "deck_ids[]", deck.id, false, :class => "checkbox_tag_custom", :id => "checkbox_#{deck.id}", :name => "checkbox_#{deck.id}" %>
+        <%= label_tag "checkbox_#{deck.id}", deck.name %>
+      </fieldset>
+
+     <% end %>
    <!-- LIST ALL DECKS WITH CHECKBOXES NEXT TO THEM -->
+ </div>
 
 <%= f.submit %>
 <% end %>

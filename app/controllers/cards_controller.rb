@@ -5,6 +5,7 @@ class CardsController < ApplicationController
   end
 
   def new
+    @card = Card.new
     @decks = current_user.decks[1..-1]
   end
 
