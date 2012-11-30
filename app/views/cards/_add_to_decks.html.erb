@@ -1,0 +1,13 @@
+<div data-role="fieldcontain">
+   <% @decks.each do |deck|%>
+   <fieldset data-role="controlgroup">
+     <%= f.check_box :deck_id, deck.id, @card.decks.include?(deck) %>
+     <%= f.label deck.name %>
+   </fieldset>
+  <% end %>
+  </div>
+  
+   <% @decks.each do |deck|%>
+     <%= f.label deck.name %>
+     <%= f.text_field %>
+  <% end %>

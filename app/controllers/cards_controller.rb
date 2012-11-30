@@ -5,18 +5,16 @@ class CardsController < ApplicationController
   end
 
   def new
-    # @card = current_user.cards.new
-    # @deck = current_user.decks.first
-    @decks = current_user.decks
+    @decks = current_user.decks[1..-1]
   end
 
   def create
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
-    @card.user_id = current_user.id
-
+    @card.user = current_user
+    @card.decks << Deck.find(params[:deck_ids])
+    @card.decks << current_user.decks.first
     if @card.save
-      @card.card_decks.create(:deck_id => @deck.id)
       redirect_to deck_card_path(@deck, @card)
     else
       render 'new'

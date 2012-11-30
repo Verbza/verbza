@@ -4,5 +4,4 @@ class CardDeck < ActiveRecord::Base
   belongs_to :deck
   belongs_to :card
 
-  attr_accessible :card_id, :deck_id
 end

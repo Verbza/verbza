@@ -5,15 +5,13 @@
  <div data-role="fieldcontain">
    <%= f.text_field :native_word, :placeholder => "Native Word" %>
  </div>
-  <div data-role="fieldcontain">
-    <% @decks.each do |deck|%>
-    <fieldset data-role="controlgroup">
-      <%= f.check_box :deck_id, deck.id, @card.decks.include?(deck) %>
-      <%= f.label deck.name %>
-    </fieldset>
-   <% end %>
+  <% @decks.each do |deck| %>
+   <div data-role="fieldcontain">
+     <%= check_box_tag 'deck_ids[]', deck.id %>
+     <%= deck.name %> 
    </div>
-  <%= f.submit %>
-  
+ <% end %>
+   <!-- LIST ALL DECKS WITH CHECKBOXES NEXT TO THEM -->
 
+<%= f.submit %>
 <% end %>
