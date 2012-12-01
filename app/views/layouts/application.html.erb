@@ -9,10 +9,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Verbza" %></title>
     <%= csrf_meta_tags %>
 
-    <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> -->
-
     <%= render 'layouts/shim'%>
 
 
@@ -20,7 +16,7 @@
 
 <!-- Loads faster at the end of the document? -->
     <%= javascript_include_tag "application" %>
-
+    <%= include_gon %>
 
   </head>
   <body>
