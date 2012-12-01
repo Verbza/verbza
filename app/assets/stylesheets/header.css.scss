@@ -10,8 +10,9 @@ header#header {
 //  background: gray;
 }
 #header ul { /* Menu Name */
-  margin-top: 1em;
-  padding-left: 0;
+  margin-top: 0px;
+  padding-left: 25px;
+	padding-right: 25px;
 }
 #header .ui-btn-corner-all {
 }
@@ -49,17 +50,17 @@ header#header {
 
 #menu-right {
   float: right;
-  margin-right:0.5em;
+  margin-right: 0px;
 }
 #menu-left ul {
-  margin-left:0.5em;
+  margin-left: 0px;
 }
 #menu-right ul {
   margin-right: 0.5em;
   right: 0em;
 }
 #home .ui-header {
-  height: 75px;
+  height: 45px;
 }
 #home .ui-header h1 {
   font-family: 'Coming Soon', cursive;
@@ -76,5 +77,5 @@ margin: 0;
 #txtSpan {
   position: relative;
   display: inline-block;
-  top: -5px; /* Doesnt seem possible to vertically center otherwise */
+  top: -23px; /* Doesnt seem possible to vertically center otherwise */
 }
