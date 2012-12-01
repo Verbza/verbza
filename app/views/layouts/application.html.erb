@@ -25,13 +25,12 @@
   </head>
   <body>
 
+    <%= image_tag("background-large.jpg", class: "background_image") %>
 
 
 
     <div id="home" class="wrapper" data-role="page", data-theme="a">
-      <header id="header" data-role="header">
-        <%= render "layouts/header"%>
-      </header>
+     
       <div id="content" data-role="content">
         <%= yield %>
 
@@ -40,9 +39,10 @@
       <footer data-role="footer" data-position="fixed">
         <p>&copy; <span>verbza</span>, 2012</p>
       </footer>
-
+       <header id="header" data-role="header">
+          <%= render "layouts/header"%>
+        </header>
     </div> <!-- /container -->
 
-    <%= image_tag("background-large.jpg", class: "background_image") %>
   </body>
 </html>

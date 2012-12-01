@@ -7,11 +7,13 @@
  </div>
 
   <div data-role="fieldcontain">
-    <% @decks.each do |deck| %>
+    <% current_user.decks.each do |deck| %>
 
-      <fieldset data-role="controlgroup">
-        <%= check_box_tag "deck_ids[]", deck.id, false, :class => "checkbox_tag_custom", :id => "checkbox_#{deck.id}", :name => "checkbox_#{deck.id}" %>
-        <%= label_tag "checkbox_#{deck.id}", deck.name %>
+
+    <div class="checkbox_tag_custom" name="checkbox-<%=deck.id%>" >
+        <%= check_box_tag "deck_ids[]", deck.id, false, {:id => "checkbox-#{deck.id}"}%>
+    </div>
+        <%= label_tag "checkbox-#{deck.id}", deck.name %>
       </fieldset>
 
      <% end %>
