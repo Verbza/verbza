@@ -1,0 +1,25 @@
+<h2><%= @deck.name %></h2>
+
+  <% if @deck.name == "All cards" %>
+    <div id="single_head">
+      <%= render 'layouts/search'%>
+    </div>
+  <% else %>
+    <div id="multi_head">
+      <%= render 'layouts/search'%>
+      <p data-role="button" data-inline="true" id="quiz_deck_button" data-mini="true"><%= link_to "Quiz", deck_cards_path(@deck) %></p>
+      <p data-role="button" data-inline="true" id="edit_deck_button" data-mini="true"><%= link_to "Edit", edit_deck_path(@deck) %></p>
+      <p data-role="button" data-inline="true" id="destroy_deck_button" data-mini="true"><%= link_to "Delete", deck_path(@deck), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
+    </div>
+    <script>getCards('<%= cards_path(@deck.id) %>')</script>
+  <% end %>
+
+<div>
+  <ul data-role="listview">
+    <% @deck.cards.sort.each do |card| %>
+    <li class="list_bar">
+      <%= link_to "#{card.native_word.capitalize} (#{card.foreign_word.capitalize})", deck_card_path(@deck, card) %>
+    </li>
+    <% end %>
+  </ul>
+</div>

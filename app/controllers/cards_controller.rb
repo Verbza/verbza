@@ -1,7 +1,10 @@
 class CardsController < ApplicationController
+  respond_to :json, :html
+
   def index
     @deck = Deck.find(params[:deck_id])
-    @cards = @deck.cards
+    respond_with @deck.cards
+    #render :json => @deck.cards
   end
 
   def new

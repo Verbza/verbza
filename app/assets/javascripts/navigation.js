@@ -15,4 +15,5 @@ $(document).ready(function() {
   $('body').click(function(e){
     $('body').trigger('hideOpenMenus');
   });
+
 });
