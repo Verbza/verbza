@@ -1,37 +1,37 @@
-
-function Deck() {
-
-}
-
-var current_index = 0;
-var cards = [];
-
-function Card(json_data) {
-  this.native_word = json_data.native_word;
-  this.foreign_word = json_data.foreign_word;
-
-  someCardFunc = function(some_arg) {
-
-  };
-
-
-}
-
-function Deck
-
-getCards = function(json_cards_path) {
-  $.getJSON(json_cards_path, function(data) {
-    // store json
-    $.each(data, function(key, val) {
-      console.log(key + ":" + val.native_word);
-      cards.push(new Card(val));
-    });
-  });
-};
-
-
-// more functions here
-nextCard = function() {
-  return cards[current_index+=1];
-};
-
+// 
+// function Deck() {
+// 
+// }
+// 
+// var current_index = 0;
+// var cards = [];
+// 
+// function Card(json_data) {
+//   this.native_word = json_data.native_word;
+//   this.foreign_word = json_data.foreign_word;
+// 
+//   someCardFunc = function(some_arg) {
+// 
+//   };
+// 
+// 
+// }
+// 
+// function Deck
+// 
+// getCards = function(json_cards_path) {
+//   $.getJSON(json_cards_path, function(data) {
+//     // store json
+//     $.each(data, function(key, val) {
+//       console.log(key + ":" + val.native_word);
+//       cards.push(new Card(val));
+//     });
+//   });
+// };
+// 
+// 
+// // more functions here
+// nextCard = function() {
+//   return cards[current_index+=1];
+// };
+// 
