@@ -1,5 +1,5 @@
 Verbza::Application.routes.draw do
-  root :to => "home#index"
+  root :to => "cards#new"
 
   devise_for :users do
     match 'users/sign_out' => 'devise/sessions#destroy' # So Devise plays nice with jQuery mobile
