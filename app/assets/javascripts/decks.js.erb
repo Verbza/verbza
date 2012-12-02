@@ -1,3 +1,45 @@
+function Deck(json_cards_path){
+	this.cards = [];
+	this.current_index = 0;
+	this.wordDisplay = "#word_display";
+	
+	this.getCards(json_cards_path);
+	this.init();
+};
+
+Deck.prototype = {
+	// cards: [],	
+	init: function() {
+		console.log(this.wordDisplay);
+		var deck = this;
+		$(this.wordDisplay).on("click", function(event) {
+			$(deck.wordDisplay).text("yo");
+		})
+	},
+	
+	getCards: function(json_cards_path) {
+		var deck = this;
+		$.getJSON(json_cards_path, function(data) {
+			deck.loadCards(data);
+		})
+	},
+	
+	loadCards: function(data) {
+		$.each(data, function(key, val) {
+			deck.cards.push(new Card(val));
+		})
+	},
+	
+	nextCard: function() {
+		return this.cards[this.current_index += 1]
+	}
+}
+
+function Card(json_data) {
+	this.native_word = json_data.native_word;
+	this.foreign_word = json_data.foreign_word;
+}
+
 // 
 // function Deck() {
 // 

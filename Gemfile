@@ -40,6 +40,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "guard-rspec"
+  gem 'jasmine'
+  gem 'jasminerice'
 
   platform :ruby_19 do
      gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
