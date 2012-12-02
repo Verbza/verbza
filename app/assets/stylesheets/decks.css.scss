@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#card_rectangle {
+  width: 300px;
+  height: 150px;
+  background: white;
+}
+#word_display {
+  color: black;
+  text-align: center;
+  padding-top: 70px;
+}
+
 #multi_head #edit_deck_button, #multi_head #destroy_deck_button, #quiz_deck_button {
   margin-bottom: 20px;
 
