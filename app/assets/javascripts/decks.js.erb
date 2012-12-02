@@ -1,6 +1,7 @@
 function Deck(json_cards_path){
 	this.cards = [];
 	this.current_index = 0;
+	this.cardSide = "native"
 	this.wordDisplay = "#word_display";
 	
 	this.getCards(json_cards_path);
@@ -10,10 +11,10 @@ function Deck(json_cards_path){
 Deck.prototype = {
 	// cards: [],	
 	init: function() {
-		console.log(this.wordDisplay);
 		var deck = this;
 		$(this.wordDisplay).on("click", function(event) {
-			$(deck.wordDisplay).text("yo");
+			// $(deck.wordDisplay).text("yo");
+			deck.nextCard();
 		})
 	},
 	
@@ -31,7 +32,18 @@ Deck.prototype = {
 	},
 	
 	nextCard: function() {
-		return this.cards[this.current_index += 1]
+		var deck = this;
+
+		if (deck.current_index == deck.cards.length) {
+			$(deck.wordDisplay).text("Quiz complete!")
+		} else if (deck.cardSide == "native") {
+			$(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
+			deck.cardSide = "foreign"
+		} else {
+			$(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
+			deck.current_index += 1;
+			deck.cardSide = "native";
+		}
 	}
 }
 
