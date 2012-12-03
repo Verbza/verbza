@@ -25,11 +25,29 @@ li.list_bar {
   width: 100%;
 }
 
-.ui-overlay-b {
-// opacity:0.4;
-//  filter:alpha(opacity=40);
-}
+//.ui-overlay-b {
+//opacity:0.4;
+////  filter:alpha(opacity=40);
+//}
 
 #content {
   margin-top: 50px;
+}
+
+
+.ui-bar-a {
+  opacity:0.4;
+}
+
+.ui-btn-inner2 {
+  font-size: 16px;
+  padding: .6em 20px;
+  min-width: .75em;
+  display: block;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  zoom: 1;
+ z-index: 5000;
 }

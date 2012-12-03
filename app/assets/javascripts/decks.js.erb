@@ -1,52 +1,53 @@
 function Deck(json_cards_path){
-	this.cards = [];
-	this.current_index = 0;
-	this.cardSide = "native"
-	this.wordDisplay = "#word_display";
-	
-	this.getCards(json_cards_path);
-	this.init();
+  this.cards = [];
+  this.current_index = 0;
+  this.cardSide = "native"
+  this.wordDisplay = "#word_display";
+
+  this.getCards(json_cards_path);
+  this.init();
 };
 
+<<<<<<< HEAD
 Deck.prototype = {
-	// cards: [],	
-	init: function() {
-		var deck = this;
-		$(this.wordDisplay).on("click", function(event) {
-			deck.nextCard();
-		})
-	},
-	
-	getCards: function(json_cards_path) {
-		var deck = this;
-		$.getJSON(json_cards_path, function(data) {
-			deck.loadCards(data);
-		})
-	},
-	
-	loadCards: function(data) {
-		$.each(data, function(key, val) {
-			deck.cards.push(new Card(val));
-		})
-	},
-	
-	nextCard: function() {
-		var deck = this;
+  // cards: [],
+  init: function() {
+    var deck = this;
+    $(this.wordDisplay).on("click", function(event) {
+      deck.nextCard();
+    })
+  },
 
-		if (deck.current_index == deck.cards.length) {
-			$(deck.wordDisplay).text("Quiz complete!")
-		} else if (deck.cardSide == "native") {
-			$(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-			deck.cardSide = "foreign"
-		} else {
-			$(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
-			deck.current_index += 1;
-			deck.cardSide = "native";
-		}
-	}
+  getCards: function(json_cards_path) {
+    var deck = this;
+    $.getJSON(json_cards_path, function(data) {
+      deck.loadCards(data);
+    })
+  },
+
+  loadCards: function(data) {
+    $.each(data, function(key, val) {
+      deck.cards.push(new Card(val));
+    })
+  },
+
+  nextCard: function() {
+    var deck = this;
+
+    if (deck.current_index == deck.cards.length) {
+      $(deck.wordDisplay).text("Quiz complete!")
+    } else if (deck.cardSide == "native") {
+      $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
+      deck.cardSide = "foreign"
+    } else {
+      $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
+      deck.current_index += 1;
+      deck.cardSide = "native";
+    }
+  }
 }
 
 function Card(json_data) {
-	this.native_word = json_data.native_word;
-	this.foreign_word = json_data.foreign_word;
+  this.native_word = json_data.native_word;
+  this.foreign_word = json_data.foreign_word;
 }
