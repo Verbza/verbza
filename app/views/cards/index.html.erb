@@ -1,5 +1,18 @@
-<h2><%= @deck.name%> - Quiz</h2>
+<h2><%= @deck.name %></h2>
 
-<div id="card_rectangle">
-  <p id="quiz_word">Start game</p>
+
+<p data-role="button" data-inline="true" class="deck_button" data-mini="true"><%= link_to "Quiz", deck_path(@deck) %></p>
+<p data-role="button" data-inline="true" class="deck_button" data-mini="true"><%= link_to "Edit", edit_deck_path(@deck) %></p>
+<p data-role="button" data-inline="true" class="deck_button" data-mini="true"><%= link_to "Delete", deck_path(@deck), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
+
+
+<div>
+  <ul data-role="listview">
+    <% @deck.cards.sort.each do |card| %>
+    <li class="list_bar">
+      <%= link_to "#{card.native_word.capitalize} (#{card.foreign_word.capitalize})", deck_card_path(@deck, card) %>
+    </li>
+    <% end %>
+  </ul>
 </div>
+

@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <li data-icon="false"><%= link_to "All Decks", decks_path %></li>
-  <li data-icon="false"><%= link_to "All Cards", deck_path(current_user.decks.first.id) %></li>
+  <li data-icon="false"><%= link_to "All Cards", deck_cards_path(current_user.decks.first) %></li>
   <li data-icon="false"><%= link_to "New Deck", new_deck_path %></li>
-  <li data-icon="false"><%= link_to "New Card", new_deck_card_path(current_user.decks.first.id) %></li>
+  <li data-icon="false"><%= link_to "New Card", new_deck_card_path(current_user.decks.first) %></li>
 <% end %>
 

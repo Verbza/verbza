@@ -3,7 +3,12 @@ class CardsController < ApplicationController
 
   def index
     @deck = Deck.find(params[:deck_id])
-    respond_with @deck.cards
+
+    respond_to do |format|
+      format.html
+      format.json { respond_with @deck.cards }
+    end
+    # respond_with @deck.cards
     #render :json => @deck.cards
   end
 
@@ -16,8 +21,9 @@ class CardsController < ApplicationController
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
     @card.user = current_user
+    params[:deck_ids] << @deck.id
     @card.decks << Deck.find(params[:deck_ids])
-    @card.decks << current_user.decks.first
+    # @card.decks << current_user.decks.first
     if @card.save
       redirect_to deck_card_path(@deck, @card)
     else
@@ -31,6 +37,7 @@ class CardsController < ApplicationController
 
   def edit
     @card = Card.find(params[:id])
+    @decks = current_user.decks[1..-1]
   end
 
   def update

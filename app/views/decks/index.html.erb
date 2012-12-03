@@ -1,13 +1,11 @@
-<h2><%= current_user.email %></h2>
+<h2>All Decks - <%= current_user.email %></h2>
 
-<div id="single_head">
-<%= render 'layouts/search'%>
-</div>
+
 <div>
   <ul data-role="listview">
     <% @decks.each do |deck| %>
     <li class="list_bar">
-      <%= link_to "#{deck.name}", deck_path(deck) %>
+      <%= link_to "#{deck.name}", deck_cards_path(deck) %>
 
     </li>
 
