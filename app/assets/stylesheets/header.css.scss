@@ -28,7 +28,7 @@ header#header {
 #header ul ul li {
   width: 150px; /* Fixed width menu items*/
   display: block; /* JQM makes a inline-blocks... reset it to block */
-  opacity: 1;
+//  opacity: 1;
 }
 #header ul ul li a {
   white-space: normal; /* Stop long menu names from truncating */
