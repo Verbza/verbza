@@ -11,7 +11,11 @@ class Card < ActiveRecord::Base
       :medium => "300x300>", 
       :thumb => "100x100>" },
     :storage => :s3,
-    :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_KEY']
+    },
     :path => "/:style/:id/:filename"
     
 
