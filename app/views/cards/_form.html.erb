@@ -5,11 +5,17 @@
  <div data-role="fieldcontain">
    <%= f.text_field :native_word, :placeholder => "Native Word" %>
  </div>
-
-  <div data-role="fieldcontain">
+ <% if @card.image_file_name %>
+   <%= image_tag (@card.image.url(:medium)), :class => "image_on_edit_page" %>
+   <%= button_tag "Change picture", "#", :class => "change_picture_button"%>
+   <div class="image_upload_1" data-role="fieldcontain">
+     <%= f.file_field :image %>
+   </div>
+ <% else %>
+  <div class="image_upload" data-role="fieldcontain">
     <%= f.file_field :image %>
   </div>
-
+  <% end %>
   <div data-role="fieldcontain">
     <% @decks.each do |deck| %>
 
