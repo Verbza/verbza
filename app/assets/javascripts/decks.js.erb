@@ -9,7 +9,6 @@ function Deck(json_cards_path){
 };
 
 Deck.prototype = {
-  // cards: [],
   init: function() {
     var deck = this;
     $(this.wordDisplay).on("click", function(event) {
@@ -21,7 +20,7 @@ Deck.prototype = {
     var deck = this;
     $.getJSON(json_cards_path, function(data) {
       deck.loadCards(data);
-    })
+    });
   },
 
   loadCards: function(data) {
