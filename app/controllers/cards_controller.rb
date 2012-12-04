@@ -21,12 +21,14 @@ class CardsController < ApplicationController
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
     @card.user = current_user
-    #TODO fix ond deck situation !!
-    
-    params[:deck_ids] << @deck.id
-    @card.decks << Deck.find(params[:deck_ids])
 
-    # @card.decks << current_user.decks.first
+    if params[:deck_ids].nil?
+      @card.decks << current_user.decks.first
+    else
+      params[:deck_ids] << @deck.id
+      @card.decks << Deck.find(params[:deck_ids])
+    end
+
     if @card.save
       redirect_to deck_card_path(@deck, @card)
     else
