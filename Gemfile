@@ -57,6 +57,8 @@ end
 group :test do
   gem "faker"
   gem "database_cleaner"
+  gem 'capybara'
+  gem 'launchy'
 end
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
