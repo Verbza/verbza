@@ -3,13 +3,13 @@
     <h2><%= @card.native_word %></h2>
     <p><%= @card.foreign_word %></p>
   </div>
+
   <div id="card_edit_button">
     <p data-role="button" data-inline="true" data-mini="true"><%= link_to "Edit", edit_deck_card_path(@card.decks.first, @card) %></p>
     <p id="card_delete_button" data-role="button" data-inline="true" data-mini="true"><%= link_to "Delete", deck_card_path(@card.decks.first, @card), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
   </div>
-  <div id="rest">
-    (Edit card, delete card, img,..)
-  </div>
+  <% unless @card.image.url %>
+    <%= image_tag @card.image.url(:medium), :class => "img_in_show_card" %>
+  <% end %>
 </div>
 
-<%= image_tag @card.image.url(:medium) %>
