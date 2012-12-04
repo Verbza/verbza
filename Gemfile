@@ -7,6 +7,8 @@ gem 'rails', '3.2.9'
 
 gem 'thin'
 gem 'devise'
+gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,6 +30,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 
 
 

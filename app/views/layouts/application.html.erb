@@ -20,7 +20,7 @@
   </head>
   <body>
 
-    <%= image_tag("background-large.jpg", class: "background_image") %>
+    <%#= image_tag("background-large.jpg", class: "background_image") %>
 
 
 
@@ -28,6 +28,7 @@
 
       <div id="content" data-role="content">
         <%= yield %>
+        <%= debug params %>
 
       </div>
 
