@@ -29,14 +29,11 @@ class CardsController < ApplicationController
       @card.decks << Deck.find(params[:deck_ids])
     end
 
-    
-
     if @card.save
       redirect_to deck_card_path(@deck, @card)
     else
       render 'new'
     end
-  
   
     @card.image_url = @card.image.url(:medium)
     @card.save
