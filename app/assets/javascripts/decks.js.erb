@@ -1,55 +1,71 @@
 function Deck(json_cards_path){
-  this.cards = [];
-  this.current_index = 0;
-  this.cardSide = "native";
-  this.wordDisplay = "#word_display";
-  this.imageDisplay = '#picture_display';
+    this.cards = [];
+    this.current_index = 0;
+    this.cardSide = "native";
+    this.wordDisplay = "#word_display";
+    this.imageDisplay = '#picture_display';
 
-  this.getCards(json_cards_path);
-  this.init();
+    this.getCards(json_cards_path);
+    this.init();
 };
 
 Deck.prototype = {
-  init: function() {
-    var deck = this;
-    $(this.wordDisplay).on("click", function(event) {
-      deck.nextCard();
-    })
-  },
+    init: function() {
+        var deck = this;
+        deck.loadImages();
 
-  getCards: function(json_cards_path) {
-    var deck = this;
-    $.getJSON(json_cards_path, function(data) {
-      deck.loadCards(data);
-    });
-  },
+        $(this.wordDisplay).on("click", function(event) {
+            deck.nextCard();
+        })
+    },
 
-  loadCards: function(data) {
-    $.each(data, function(key, val) {
-      deck.cards.push(new Card(val));
-    })
-  },
+    getCards: function(json_cards_path) {
+        var deck = this;
+        $.getJSON(json_cards_path, function(data) {
+            deck.loadCards(data);
+        });
+    },
 
-  nextCard: function() {
-    var deck = this;
+    loadCards: function(data) {
+        var deck = this;
+        $.each(data, function(key, val) {
+            deck.cards.push(new Card(val));
+        });
+    },
 
-    if (deck.current_index == deck.cards.length) {
-      $(deck.wordDisplay).text("Quiz complete!")
-    } else if (deck.cardSide == "native") {
-      $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-      $(deck.imageDisplay).html("<%= image_tag 'rails.png' %>");
-      deck.cardSide = "foreign";
-    } else {
-      $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
-      deck.current_index += 1;
-      deck.cardSide = "native";
+    nextCard: function() {
+        var deck = this;
+
+        if (deck.current_index == deck.cards.length) {
+            $(deck.wordDisplay).text("Quiz complete!")
+        } else if (deck.cardSide == "native") {
+            $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
+            // $(deck.imageDisplay).html("<img src='" + deck.cards[deck.current_index].image_url + "' />");
+            deck.cardSide = "foreign";
+        } else {
+            $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
+            deck.current_index += 1;
+            deck.cardSide = "native";
+        }
+    },
+
+    loadImages: function() {
+        var image_divs = [];
+        var deck = this;
+        $.each(deck.cards, function(key, value) {
+            alert('yo')
+            var image = "<img src='" + value.image_url + "' id='card_image_" + key + "' />";
+            $('#picture_display').append("<div>WHATUP</div>");
+            $(image).hide(function() {
+                $('#picture_display').append(this);
+            });
+        });
     }
-  }
 }
 
 function Card(json_data) {
-  this.native_word = json_data.native_word;
-  this.foreign_word = json_data.foreign_word;
-  this.image_url = json_data.image_url;
+    this.native_word = json_data.native_word;
+    this.foreign_word = json_data.foreign_word;
+    this.image_url = json_data.image_url;
 }
 
