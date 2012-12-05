@@ -2,8 +2,7 @@ class Card < ActiveRecord::Base
   belongs_to :user
   has_many :card_decks
   has_many :decks, :through => :card_decks
-  before_save :save_image_url
-  
+
   attr_accessible :decks, :foreign_word, :native_word, :user_id, :image_file_name, :image, :image_url
 
   has_attached_file :image,
@@ -28,10 +27,6 @@ class Card < ActiveRecord::Base
 
   def native_word?
     :native_word == nil
-  end
-
-  def save_image_url
-    :image_url = @card.image.url
   end
 
 
