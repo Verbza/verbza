@@ -13,3 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#ignore the fiel with the AWS keys in it
+/config/initializers/s3_constants.rb
