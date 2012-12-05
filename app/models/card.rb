@@ -3,7 +3,7 @@ class Card < ActiveRecord::Base
   has_many :card_decks
   has_many :decks, :through => :card_decks
 
-  attr_accessible :decks, :foreign_word, :native_word, :user_id, :image_file_name, :image, :image_url
+  attr_accessible :decks, :foreign_word, :native_word, :user_id, :image_file_name, :image
 
   has_attached_file :image,
       :styles => {
