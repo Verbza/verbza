@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203161830) do
+ActiveRecord::Schema.define(:version => 20121205010411) do
 
   create_table "cards", :force => true do |t|
     t.string   "native_word"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121203161830) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_url"
   end
 
   create_table "cards_decks", :force => true do |t|
