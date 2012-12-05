@@ -28,8 +28,11 @@ class CardsController < ApplicationController
       params[:deck_ids] << @deck.id
       @card.decks << Deck.find(params[:deck_ids])
     end
-    
-    @card.image_url = @card.image.url
+    puts "============================"
+    puts "============================"
+    @card.image.url
+    puts "============================"
+    puts "============================"
 
     if @card.save
       redirect_to deck_card_path(@deck, @card)
