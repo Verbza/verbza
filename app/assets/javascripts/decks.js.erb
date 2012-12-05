@@ -36,7 +36,7 @@ Deck.prototype = {
       $(deck.wordDisplay).text("Quiz complete!")
     } else if (deck.cardSide == "native") {
       $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-      $('#picture_display').html("<%= image_tag " +  deck.cards[deck.current_index].image_url + " %>");
+      $('#picture_display').html("<%= image_tag 'rails.png' %>");
       deck.cardSide = "foreign";
     } else {
       $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
