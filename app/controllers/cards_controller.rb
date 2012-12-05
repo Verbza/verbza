@@ -28,14 +28,18 @@ class CardsController < ApplicationController
       params[:deck_ids] << @deck.id
       @card.decks << Deck.find(params[:deck_ids])
     end
+
     
-    @card.image_url = @card.image.url(:medium)
 
     if @card.save
       redirect_to deck_card_path(@deck, @card)
     else
       render 'new'
     end
+  
+  
+    @card.image_url = @card.image.url(:medium)
+    @card.save
   end
 
   def show
@@ -51,7 +55,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
 
     if @card.update_attributes(params[:card])
-      redirect_to @card
+      redirect_to deck_card_path(params[:deck_id], @card)
     else
       render 'edit'
     end

@@ -8,7 +8,7 @@
  <% if @card.image_file_name %>
    <%= image_tag (@card.image.url(:medium)), :class => "image_on_edit_page" %>
    <%= button_tag "Change picture", "#", :class => "change_picture_button"%>
-   <div class="image_upload_1" data-role="fieldcontain">
+   <div class="image_upload_1 image_upload" data-role="fieldcontain">
      <%= f.file_field :image %>
    </div>
  <% else %>
@@ -16,6 +16,7 @@
     <%= f.file_field :image %>
   </div>
   <% end %>
+
   <div data-role="fieldcontain">
     <% @decks.each do |deck| %>
 
@@ -30,5 +31,5 @@
    <!-- LIST ALL DECKS WITH CHECKBOXES NEXT TO THEM -->
  </div>
 
-<%= f.submit %>
+ <%= f.submit %>
 <% end %>

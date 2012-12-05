@@ -29,7 +29,7 @@ class DecksController < ApplicationController
 
   def update
     if @deck.update_attributes(params[:deck])
-      redirect_to @deck
+      redirect_to deck_cards_path(@deck)
     else
       render 'edit'
     end
