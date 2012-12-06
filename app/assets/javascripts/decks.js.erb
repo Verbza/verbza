@@ -13,7 +13,7 @@ function Deck(json_cards_path) {
 Deck.prototype = {
     init: function () {
         var deck = this;
-    int = setInterval (function() { deck.loadImages(deck) }, 500);
+        int = setInterval (function() { deck.loadImages() }, 500);
         $(this.cardDisplay).on("click", function(event) {
             deck.nextCard();
         });
@@ -40,43 +40,26 @@ Deck.prototype = {
             $(deck.wordDisplay).text("Quiz complete!")
         } else if (deck.cardSide === "native") {
             $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-      // $('#card_image_' + deck.current_index).reveal();
-      $('#card_image_' + deck.current_index).show();
+            $('#card_image_' + deck.current_index).show();
             deck.cardSide = "foreign";
         } else {
-      $('#card_image_' + deck.current_index).hide();
+            $('#card_image_' + deck.current_index).hide();
             $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
             deck.current_index += 1;
             deck.cardSide = "native";
         }
     },
 
-    loadImages: function(deck) {
-        var deck = deck;
-    var loadIndex = 0;
-    var imageCounter = 0;
-    var cardCollection = deck.cards.slice(loadIndex);
+    loadImages: function() {
+        $.each(deck.cards, function(key, value) {
+            if (value.image_url) {
+                var image = "<img class='card_picture' src='" + value.image_url + "' id='card_image_" + key + "' />";
+                $('#picture_display').append($(image));
+                $('.card_picture').hide();
+            }
+        });
 
-    // if ($('.card_picture').length > 0) {
-    //  var loadIndex = (deck.cards.length - $('.card_picture').length) - 1;
-    // } else {
-    //  var loadIndex = 0;
-    // }
-
-
-    $.each(deck.cards, function(key, value) {
-      if (value.image_url) {
-        var image = "<img class='card_picture' src='" + value.image_url + "' id='card_image_" + key + "' />";
-              $('#picture_display').append($(image));
-        $('.card_picture').hide();
-        imageCounter += 1;
-      }
-    });
-
-    if ($('.card_picture').length === imageCounter) {
-      clearInterval(int);
-      return;
-    }
+        clearInterval(int);
     }
 };
 
