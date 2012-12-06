@@ -51,6 +51,14 @@ class CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
+    @deck = current_user.decks.find(params[:deck_id])
+
+    if params[:deck_ids].nil?
+      @card.decks << current_user.decks.first
+    else
+      params[:deck_ids] << @deck.id
+      @card.decks << Deck.find(params[:deck_ids])
+    end
 
     if @card.update_attributes(params[:card])
 
