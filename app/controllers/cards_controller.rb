@@ -53,15 +53,11 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @deck = current_user.decks.find(params[:deck_id])
 
-    if params[:deck_ids].nil?
-      @card.decks << current_user.decks.first
-    else
-      params[:deck_ids] << @deck.id
+    unless params[:deck_ids].nil?
       @card.decks << Deck.find(params[:deck_ids])
     end
 
     if @card.update_attributes(params[:card])
-
       redirect_to deck_card_path(params[:deck_id], @card)
     else
       render 'edit'
@@ -70,8 +66,8 @@ class CardsController < ApplicationController
 
   def destroy
     @deck = Deck.find(params[:deck_id])
-    @card = Card.find(params[:id])
-    @card.destroy
+    @card = @deck.cards.find(params[:id])
+    @deck.cards.delete(@card)
 
     redirect_to deck_cards_path(@deck)
   end
