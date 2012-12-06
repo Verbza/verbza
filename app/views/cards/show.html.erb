@@ -14,5 +14,18 @@
     <p id="card_delete_button" data-role="button" data-inline="true" data-mini="true"><%= link_to "Delete", deck_card_path(@card.decks.first, @card), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
   </div>
 
+<%  if @card.previous_card(@deck) %>
+  <p data-role="button" data-inline="true" data-mini="true">
+    <%= link_to "< Previous", deck_card_path(@deck.id , @card.previous_card(@deck)) %>
+  </p>
+<% end %>
+  <p data-role="button" data-inline="true" data-mini="true">
+    <%= link_to "New Card", new_deck_card_path(@card.decks.first) %>
+  </p>
+<%  if @card.next_card(@deck) %>
+  <p data-role="button" data-inline="true" data-mini="true">
+    <%= link_to "Next >", deck_card_path(@deck.id, @card.next_card(@deck)) %>
+  </p>
+<% end %>
 </div>
 

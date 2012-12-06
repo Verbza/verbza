@@ -34,13 +34,14 @@ class CardsController < ApplicationController
     else
       render 'new'
     end
-  
+
     @card.image_url = @card.image.url(:medium)
     @card.save
   end
 
   def show
     @card = Card.find(params[:id])
+    @deck = Deck.find(params[:deck_id])
   end
 
   def edit
