@@ -9,6 +9,7 @@ class Card < ActiveRecord::Base
       :styles => {
       :medium => "300x300>",
       :thumb => "100x100>" },
+      :storage => :s3,
       :s3_credentials => {
        	:bucket => ENV['AWS_BUCKET'],
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
