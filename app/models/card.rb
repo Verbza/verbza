@@ -9,7 +9,12 @@ class Card < ActiveRecord::Base
       :styles => {
       :medium => "300x300>",
       :thumb => "100x100>" },
-    :path => "/:style/:id/:filename"
+      :s3_credentials => {
+       	:bucket => ENV['AWS_BUCKET'],
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+       	:secret_access_key => ENV['AWS_SECRET_KEY']
+       	},
+      :path => "/:style/:id/:filename"
 
 
   validates :native_word,  :presence => true, :if => :foreign_word?
