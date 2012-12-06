@@ -3,16 +3,66 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/***********************
+     QUIZ - deck#show
+***********************/
+
+#container_rectangle {
+  width:300px;
+  height:300px;
+  position: relative;
+margin: auto;
+//float: left;
+background: white;
+border: 1px solid white;
+
+overflow:hidden;
+}
+
+#picture_display {
+  position: absolute;
+//padding: 10%;
+  img {
+    width: 400px;
+  }
+}
+
 #card_rectangle {
   width: 300px;
-  height: 150px;
-  background: white;
+  height: 300px;
+
+  opacity:1.3;
+ // margin: 20px;
+//   padding: 30px;
+  position: absolute;
+margin: 0%;
 }
+
+#card_text {
+  border: 1px solid white;
+  background: black;
+  text-color: white;
+}
+
 #word_display {
-  color: black;
+//  padding: auto;
+//  vertical-align: middle;
+  color: white;
   text-align: center;
-  padding-top: 70px;
+//  padding-top: 55px;
+  font-size:1.5em;
+opacity: 1.0;
+  z-index:1;
 }
+
+
+
+
+
+
+/***********************
+     BUTTONS
+***********************/
 
 #multi_head, .deck_button, #multi_head  {
   margin-bottom: 20px;
@@ -37,6 +87,6 @@
 }
 
 #rest {
-  clear:left;;
+  clear:left;
 }
 

@@ -1,10 +1,15 @@
 <h2><%= @deck.name%> - Quiz</h2>
 
-<div id="card_rectangle">
-  <a href="#"><p id="word_display">Start game</p></a>
+<div id="container_rectangle">
+  <div id="picture_display"></div>
+  <div id="card_rectangle">
+    <div id="card_text">
+      <a href="#"><p id="word_display">Start game</p></a>
+    </div>
+    <script type="text/javascript">deck = new Deck('<%= deck_cards_path @deck %>')</script>
 
-  <script type="text/javascript">deck = new Deck('<%= deck_cards_path @deck %>')</script>
+  </div>
 </div>
-<div id="picture_display">
+<!-- <div id="">
 
-</div>
+</div> -->

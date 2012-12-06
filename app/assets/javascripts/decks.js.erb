@@ -3,6 +3,7 @@ function Deck(json_cards_path) {
     this.current_index = 0;
     this.cardSide = "native";
     this.wordDisplay = "#word_display";
+    this.cardDisplay = "#card_rectangle";
     this.imageDisplay = '#picture_display';
 
     this.getCards(json_cards_path);
@@ -13,7 +14,7 @@ Deck.prototype = {
     init: function () {
         var deck = this;
     int = setInterval (function() { deck.loadImages(deck) }, 500);
-        $(this.wordDisplay).on("click", function(event) {
+        $(this.cardDisplay).on("click", function(event) {
             deck.nextCard();
         });
     },

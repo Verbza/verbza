@@ -52,6 +52,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
 
     if @card.update_attributes(params[:card])
+
       redirect_to deck_card_path(params[:deck_id], @card)
     else
       render 'edit'

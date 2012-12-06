@@ -7,8 +7,10 @@
  </div>
  <% if @card.image_file_name %>
    <%= image_tag (@card.image.url(:medium)), :class => "image_on_edit_page" %>
-   <%= button_tag "Change picture", "#", :class => "change_picture_button"%>
-   <div class="image_upload_1 image_upload" data-role="fieldcontain">
+   <div class="change_picture_button">
+     <%= button_tag "Change picture", :type => "button", :id => "change_picture_button" %>
+   </div>
+   <div class="image_upload_1" data-role="fieldcontain">
      <%= f.file_field :image %>
    </div>
  <% else %>
@@ -33,3 +35,13 @@
 
  <%= f.submit %>
 <% end %>
+
+<script type="text/javascript">
+
+$("#change_picture_button").on("click", function(event) {
+  event.preventDefault();
+   $(".image_on_edit_page").hide();
+     $(".change_picture_button").hide();
+     $(".image_upload_1").css("display", "block");
+});
+</script>
