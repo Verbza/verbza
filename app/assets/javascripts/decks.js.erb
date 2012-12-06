@@ -3,7 +3,7 @@ function Deck(json_cards_path){
   this.current_index = 0;
   this.cardSide = "native";
   this.wordDisplay = "#word_display";
-  this.imageDisplay = '#picture_display';
+  // this.imageDisplay = '#picture_display';
 
   this.getCards(json_cards_path);
   this.init();
@@ -14,7 +14,7 @@ Deck.prototype = {
     var deck = this;
     $(this.wordDisplay).on("click", function(event) {
       deck.nextCard();
-    })
+    });
   },
 
   getCards: function(json_cards_path) {
@@ -27,17 +27,17 @@ Deck.prototype = {
   loadCards: function(data) {
     $.each(data, function(key, val) {
       deck.cards.push(new Card(val));
-    })
+    });
   },
 
   nextCard: function() {
     var deck = this;
 
     if (deck.current_index == deck.cards.length) {
-      $(deck.wordDisplay).text("Quiz complete!")
+      $(deck.wordDisplay).text("Quiz complete!");
     } else if (deck.cardSide == "native") {
       $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-      $(deck.imageDisplay).html("<%= image_tag 'rails.png' %>");
+      // $(deck.imageDisplay).html("<%= image_tag 'rails.png' %>");
       deck.cardSide = "foreign";
     } else {
       $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
@@ -50,6 +50,6 @@ Deck.prototype = {
 function Card(json_data) {
   this.native_word = json_data.native_word;
   this.foreign_word = json_data.foreign_word;
-  this.image_url = json_data.image_url;
+  // this.image_url = json_data.image_url;
 }
 
