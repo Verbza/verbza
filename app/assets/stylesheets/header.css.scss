@@ -1,3 +1,7 @@
+$header_font: 'Sonsie One', cursive;
+//'Cutive Mono', serif;
+//'Military', cursive;
+
 header#header {
   position: fixed;/* Let menu content overflow outside the header */
   width: 100%;
@@ -64,7 +68,7 @@ header#header {
   height: 45px;
 }
 #home .ui-header h1 {
-  font-family: 'Military', cursive;
+  font-family: $header_font;
   position: absolute;
   font-size: 25pt;
   margin-bottom:0px;
