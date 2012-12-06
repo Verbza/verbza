@@ -1,4 +1,4 @@
-function Deck(json_cards_path){
+function Deck(json_cards_path) {
     this.cards = [];
     this.current_index = 0;
     this.cardSide = "native";
@@ -7,27 +7,27 @@ function Deck(json_cards_path){
 
     this.getCards(json_cards_path);
     this.init();
-};
+}
 
 Deck.prototype = {
-    init: function() {
+    init: function () {
         var deck = this;
-		int = setInterval(function(){ deck.loadImages(deck) }, 500);
+		int = setInterval (function() { deck.loadImages(deck) }, 500);
         $(this.wordDisplay).on("click", function(event) {
             deck.nextCard();
-        })
+        });
     },
 
-    getCards: function(json_cards_path) {
+    getCards: function (json_cards_path) {
         var deck = this;
-        $.getJSON(json_cards_path, function(data) {
+        $.getJSON (json_cards_path, function (data) {
             deck.loadCards(data);
         });
     },
 
-    loadCards: function(data) {
+    loadCards: function (data) {
         var deck = this;
-        $.each(data, function(key, val) {
+        $.each(data, function (key, val) {
             deck.cards.push(new Card(val));
         });
     },
@@ -35,9 +35,9 @@ Deck.prototype = {
     nextCard: function() {
         var deck = this;
 
-        if (deck.current_index == deck.cards.length) {
+        if (deck.current_index === deck.cards.length) {
             $(deck.wordDisplay).text("Quiz complete!")
-        } else if (deck.cardSide == "native") {
+        } else if (deck.cardSide === "native") {
             $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
 			// $('#card_image_' + deck.current_index).reveal();
 			$('#card_image_' + deck.current_index).show();
@@ -69,15 +69,15 @@ Deck.prototype = {
 	            $('#picture_display').append($(image));
 				$('.card_picture').hide();
 				imageCounter += 1;
-			};
+			}
 		});
 		
-		if ($('.card_picture').length == imageCounter) {
-			clearInterval(int)
-			return
+		if ($('.card_picture').length === imageCounter) {
+			clearInterval(int);
+			return;
 		}
     }
-}
+};
 
 function Card(json_data) {
     this.native_word = json_data.native_word;
