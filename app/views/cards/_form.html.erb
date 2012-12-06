@@ -11,10 +11,12 @@
      <%= button_tag "Change picture", :type => "button", :id => "change_picture_button" %>
    </div>
    <div class="image_upload_1" data-role="fieldcontain">
+     <%= f.label :image, "Upload an image: "%>
      <%= f.file_field :image %>
    </div>
  <% else %>
   <div class="image_upload" data-role="fieldcontain">
+    <%= f.label :image, "Upload an image: " %>
     <%= f.file_field :image %>
   </div>
   <% end %>
