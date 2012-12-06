@@ -5,7 +5,7 @@
   <ul data-role="listview">
     <% @decks.each do |deck| %>
     <li class="list_bar">
-      <%= link_to "#{deck.name}", deck_cards_path(deck) %>
+      <%= link_to "#{deck.name} (#{deck.num_cards_in_deck})", deck_cards_path(deck) %>
 
     </li>
 

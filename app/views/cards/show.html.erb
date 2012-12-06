@@ -1,16 +1,18 @@
 <div id="single_card_body">
   <div id="words">
-    <h2><%= @card.native_word %></h2>
-    <p><%= @card.foreign_word %></p>
+    <h2 class="native_word_show_page"><%= @card.native_word %></h2>
+    <p class="foreign_word_show_page"><%= @card.foreign_word%></p>
   </div>
+
+<div id="img_in_show_card">
+  <% if @card.image_file_name %>
+    <%= image_tag @card.image.url(:medium) %>
+  <% end %>
 
   <div id="card_edit_button">
     <p data-role="button" data-inline="true" data-mini="true"><%= link_to "Edit", edit_deck_card_path(@card.decks.first, @card) %></p>
     <p id="card_delete_button" data-role="button" data-inline="true" data-mini="true"><%= link_to "Delete", deck_card_path(@card.decks.first, @card), :method => :delete, :data => { :confirm => "Are you sure?" } %></p>
   </div>
-  <% if @card.image_file_name %>
-    <%= image_tag @card.image.url(:medium), :class => "img_in_show_card" %>
-  <% end %>
-  
+
 </div>
 

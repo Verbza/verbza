@@ -8,4 +8,9 @@ class Deck < ActiveRecord::Base
 
   validates :name,
     presence: true
+
+  def num_cards_in_deck
+    self.cards.count
+  end
+
 end

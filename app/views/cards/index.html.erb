@@ -10,7 +10,7 @@
   <ul data-role="listview">
     <% @deck.cards.sort.each do |card| %>
     <li class="list_bar">
-      <%= link_to "#{card.native_word.capitalize} (#{card.foreign_word.capitalize})", deck_card_path(@deck, card) %>
+      <%= link_to "#{card.native_word} - #{card.foreign_word}", deck_card_path(@deck, card) %>
     </li>
     <% end %>
   </ul>

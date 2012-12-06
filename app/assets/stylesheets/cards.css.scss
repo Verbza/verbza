@@ -2,14 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#single_card_body {
+  margin: 0 auto;
+}
 
 #words {
-  float: left;
-  width: 50%;
+//  float: left;
+//  width: 50%;
+text-align: center;
 }
 
 #card_edit_button {
-  padding: 40px;
+//  padding: 40px;
+text-align: center;
   a {
   font-size: 0.95em;
   color: white;
@@ -20,9 +25,30 @@
   }
 }
 
+#img_in_show_card {
+  text-align: center;
+}
 
+#img_in_show_card img {
+  border: 3px black solid;
+}
+
+.native_word_show_page {
+//  margin-top: 90px;
+
+}
+
+.foreign_word_show_page {
+
+
+}
+
+
+//.ui-link-inherit {
+//  text-align: center;
+//}
 
 //.ui-field-contain {
-//	z-index: -1;
+//  z-index: -1;
 //}
 
