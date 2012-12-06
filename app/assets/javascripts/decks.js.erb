@@ -12,8 +12,7 @@ function Deck(json_cards_path){
 Deck.prototype = {
     init: function() {
         var deck = this;
-        deck.loadImages();
-
+		int = setInterval(function(){ deck.loadImages(deck) }, 500);
         $(this.wordDisplay).on("click", function(event) {
             deck.nextCard();
         })
@@ -40,26 +39,43 @@ Deck.prototype = {
             $(deck.wordDisplay).text("Quiz complete!")
         } else if (deck.cardSide == "native") {
             $(deck.wordDisplay).text(deck.cards[deck.current_index].native_word);
-            // $(deck.imageDisplay).html("<img src='" + deck.cards[deck.current_index].image_url + "' />");
+			// $('#card_image_' + deck.current_index).reveal();
+			$('#card_image_' + deck.current_index).show();
             deck.cardSide = "foreign";
         } else {
+			$('#card_image_' + deck.current_index).hide();
             $(deck.wordDisplay).text(deck.cards[deck.current_index].foreign_word);
             deck.current_index += 1;
             deck.cardSide = "native";
         }
     },
 
-    loadImages: function() {
-        var image_divs = [];
-        var deck = this;
-        $.each(deck.cards, function(key, value) {
-            alert('yo')
-            var image = "<img src='" + value.image_url + "' id='card_image_" + key + "' />";
-            $('#picture_display').append("<div>WHATUP</div>");
-            $(image).hide(function() {
-                $('#picture_display').append(this);
-            });
-        });
+    loadImages: function(deck) {
+        var deck = deck;
+		var loadIndex = 0;
+		var imageCounter = 0;
+		var cardCollection = deck.cards.slice(loadIndex);
+
+		// if ($('.card_picture').length > 0) {
+		// 	var loadIndex = (deck.cards.length - $('.card_picture').length) - 1;
+		// } else {
+		// 	var loadIndex = 0;
+		// }
+		
+
+		$.each(deck.cards, function(key, value) {
+			if (value.image_url) {			
+				var image = "<img class='card_picture' src='" + value.image_url + "' id='card_image_" + key + "' />";
+	            $('#picture_display').append($(image));
+				$('.card_picture').hide();
+				imageCounter += 1;
+			};
+		});
+		
+		if ($('.card_picture').length == imageCounter) {
+			clearInterval(int)
+			return
+		}
     }
 }
 
