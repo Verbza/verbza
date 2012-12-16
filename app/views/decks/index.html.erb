@@ -5,10 +5,9 @@
   <ul data-role="listview">
     <% @decks.each do |deck| %>
     <li class="list_bar">
+    	<span class="ui-li-count ui-btn-up-c ui-btn-corner-all"><%="#{deck.num_cards_in_deck}"%></span>
       <%= link_to "#{deck.name} (#{deck.num_cards_in_deck})", deck_cards_path(deck) %>
-
     </li>
-
     <% end %>
   </ul>
 </div>
